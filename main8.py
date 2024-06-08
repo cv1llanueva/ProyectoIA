@@ -131,10 +131,6 @@ policy_df = pd.DataFrame(optimal_policy).T
 policy_df.columns = ['North', 'South', 'East', 'West']
 policy_df.index.name = 'State'
 
-# Agregar columna para el estado de destino
-policy_df['Best_Action'] = policy_df.idxmax(axis=1)
-#policy_df['Destination'] = policy_df.index.map(lambda state: determine_destination(state, optimal_policy, grid))
-
 # Crear un DataFrame para mostrar los valores
 values_df = pd.DataFrame(optimal_values.items(), columns=['State', 'Value'])
 
@@ -153,9 +149,6 @@ value_policy_df = pd.DataFrame(value_policy).T
 value_policy_df.columns = ['North', 'South', 'East', 'West']
 value_policy_df.index.name = 'State'
 
-# Agregar columna para el estado de destino
-value_policy_df['Best_Action'] = value_policy_df.idxmax(axis=1)
-#value_policy_df['Destination'] = value_policy_df.index.map(lambda state: determine_destination(state, value_policy, grid))
 
 # Crear un DataFrame para mostrar los valores
 value_values_df = pd.DataFrame(value_values.items(), columns=['State', 'Value'])
